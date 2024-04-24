@@ -167,13 +167,7 @@ export const TRIANGULATION = [
   372, 353, 390, 339, 249, 339, 448, 255,
 ];
 
-const colors = ["#ff5733", "#33ff57", "#5733ff", "#ff33b5", "#33b5ff"];
-const getRandomColor = (): string => {
-  const randomIndex = Math.floor(Math.random() * colors.length);
-  return colors[randomIndex];
-};
-// Triangle drawing method
-const drawPath = (ctx, points, closePath) => {
+const drawPath = (ctx: any, points: any, closePath: any) => {
   const region = new Path2D();
   region.moveTo(points[0][0], points[0][1]);
   for (let i = 1; i < points.length; i++) {
@@ -189,9 +183,9 @@ const drawPath = (ctx, points, closePath) => {
 };
 
 // Drawing Mesh
-export const drawMesh = (predictions, ctx) => {
+export const drawMesh = (predictions: any, ctx: any) => {
   if (predictions.length > 0) {
-    predictions.forEach((prediction) => {
+    predictions.forEach((prediction: any) => {
       const keypoints = prediction.scaledMesh;
 
       for (let i = 0; i < TRIANGULATION.length / 3; i++) {
